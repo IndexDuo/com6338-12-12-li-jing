@@ -33,7 +33,10 @@ class Word {
     }
 
     // implement the updateScreen function:
-    updateScreen() {}
+    updateScreen(word) {
+      this.remainingGuesses--;
+      
+    }
 
     // implement the isGameOver function:
     // isGameOver() {}
