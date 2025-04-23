@@ -73,16 +73,11 @@ class Word {
             }
         });
 
-        if (
-            wordMatch == false &&
-            !incorrectLetters.includes(key) &&
-            /^[a-z]+$/.test(key) &&
-            e.key.length == 1
-        ) {
-            incorrectLetters.push(key);
-        } else console.log(e.key + " is already in the list or not a letter");
-        
-        incorrectLettersEl.textContent = incorrectLetters;
+        if (wordMatch == false && !this.word.includes(letter)) {
+            this.incorrectLetters.push(letter);
+        } else console.log(letter + " is already in the list or not a letter");
+
+        // incorrectLettersEl.textContent = this.incorrectLetters;
         if (!wordToGuessEl.textContent.includes("_")) {
             wins++;
             newGame();
