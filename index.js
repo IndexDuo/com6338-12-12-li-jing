@@ -75,7 +75,10 @@ class Word {
     isGameOver() {
         if (this.remainingGuesses <= 0 || !this.displayWord.includes("_")) {
             return true;
-        } else {
+        } else if (
+            this.remainingGuesses > 0 &&
+            this.displayWord !== this.word
+        ) {
             return false;
         }
     }
