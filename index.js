@@ -66,7 +66,7 @@ class Word {
 
         wordToGuessEl.textContent = this.displayWord;
         remainingGuessesEl.textContent = this.remainingGuesses;
-        incorrectLettersEl.textContent = this.incorrectLetters.join("");
+        incorrectLettersEl.textContent = this.incorrectLetters.join(",");
     }
 
     // implement the isGameOver function:
