@@ -73,20 +73,26 @@ class Word {
             }
         });
 
-        if (wordMatch == false && !this.word.includes(letter)) {
+        if (wordMatch == false) {
             this.incorrectLetters.push(letter);
-        } else console.log(letter + " is already in the list or not a letter");
-
-        // incorrectLettersEl.textContent = this.incorrectLetters;
-        if (!wordToGuessEl.textContent.includes("_")) {
-            wins++;
-            newGame();
-        } else if (remainingGuessesEl.textContent == 0) {
-            losses++;
-            newGame();
+            console.log(letter);
         }
-        winsEl.textContent = wins;
-        lossesEl.textContent = losses;
+        incorrectLettersEl.textContent = this.incorrectLetters;
+
+        // if (wordMatch == false && !this.word.includes(letter)) {
+        //     this.incorrectLetters.push(letter);
+        // } else console.log(letter + " is already in the list or not a letter");
+
+        // // incorrectLettersEl.textContent = this.incorrectLetters;
+        // if (!wordToGuessEl.textContent.includes("_")) {
+        //     wins++;
+        //     newGame();
+        // } else if (remainingGuessesEl.textContent == 0) {
+        //     losses++;
+        //     newGame();
+        // }
+        // winsEl.textContent = wins;
+        // lossesEl.textContent = losses;
 
         remainingGuessesEl.textContent = this.remainingGuesses;
 
