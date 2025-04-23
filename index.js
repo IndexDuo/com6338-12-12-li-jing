@@ -32,9 +32,10 @@ class Word {
     guessLetter(letter) {
         this.remainingGuesses--;
         console.log(this.word);
-        if (this.word.includes(letter)) {
-            this.updateScreen(letter);
-        }
+        this.updateScreen(letter);
+        // if (this.word.includes(letter)) {
+        //     this.updateScreen(letter);
+        // }
     }
 
     // implement the updateScreen function:
@@ -43,7 +44,6 @@ class Word {
     // Should update #incorrect-letters with the value in incorrectLetters.
     // Should update #word-to-guess with the value in displayWord.
     updateScreen(letter) {
-        // console.log(this.word);
         const wordToGuessEl = document.getElementById("word-to-guess");
         const remainingGuessesEl = document.getElementById("remaining-guesses");
         const incorrectLettersEl = document.getElementById("incorrect-letters");
