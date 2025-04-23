@@ -28,8 +28,10 @@ class Word {
   // implement the guessLetter function:
   guessLetter(letter) {
 
+    if(this.word.includes(letter)){
+      
+    }
 
-    
   }
 
   // implement the updateScreen function:
