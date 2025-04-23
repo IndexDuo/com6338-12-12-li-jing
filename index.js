@@ -32,7 +32,6 @@ class Word {
     guessLetter(letter) {
         console.log(this.word);
         if (this.word.includes(letter)) {
-            
         }
     }
 
@@ -42,7 +41,13 @@ class Word {
     // Should update #incorrect-letters with the value in incorrectLetters.
     // Should update #word-to-guess with the value in displayWord.
     updateScreen(word) {
-        this.remainingGuesses--;
+        // this.remainingGuesses--;
+        const wordToGuessEl = document.getElementById("word-to-guess");
+        var wordToGuessLength = this.word.length;
+        while (wordToGuessLength > 0) {
+            wordToGuessEl.textContent += "_";
+            wordToGuessLength--;
+        }
     }
 
     // implement the isGameOver function:
