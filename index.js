@@ -80,7 +80,6 @@ class Word {
             e.key.length == 1
         ) {
             incorrectLetters.push(key);
-            remainingGuesses -= 1;
         } else console.log(e.key + " is already in the list or not a letter");
         remainingGuessesEl.textContent = remainingGuesses;
         incorrectLettersEl.textContent = incorrectLetters;
