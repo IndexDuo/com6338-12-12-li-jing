@@ -81,7 +81,7 @@ class Word {
         ) {
             incorrectLetters.push(key);
         } else console.log(e.key + " is already in the list or not a letter");
-        remainingGuessesEl.textContent = remainingGuesses;
+        
         incorrectLettersEl.textContent = incorrectLetters;
         if (!wordToGuessEl.textContent.includes("_")) {
             wins++;
