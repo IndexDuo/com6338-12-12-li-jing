@@ -42,7 +42,7 @@ class Word {
     // Should update #incorrect-letters with the value in incorrectLetters.
     // Should update #word-to-guess with the value in displayWord.
     updateScreen(letter) {
-        console.log(this.word);
+        // console.log(this.word);
         const wordToGuessEl = document.getElementById("word-to-guess");
         var wordToGuessLength = this.word.length;
         if (wordToGuessEl.textContent == "") {
@@ -61,9 +61,9 @@ class Word {
                 // console.log(e.key + " is correct. Index: " + index);
                 this.word.replace(letterToGuess, "");
                 displayedWordArr[index] = letterToGuess;
-                console.log("guess");
+                // console.log("guess");
             } else if (letter) {
-                console.log("guess");
+                // console.log("guess");
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
         });
