@@ -84,7 +84,17 @@ class Word {
     //  Should return "win" or "loss" depending on if the game is won or lost. Should return null if the game is not over yet.
     // For the game to be won, word should be equal to displayWord and remainingGuesses should be greater than 0.
     // The game is lost if displayWord is not equal to word and remainingGuesses is equal to or less than 0.
-    getWinOrLoss() {}
+    getWinOrLoss() {
+        if (this.remainingGuesses > 0 || !this.displayWord.includes("_")) {
+            return "win";
+        } else if (
+            this.remainingGuesses <= 0 &&
+            this.displayWord.includes("_")
+        ) {
+            return "loss";
+        }
+        return null;
+    }
 }
 
 function newGame() {
