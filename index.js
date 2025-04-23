@@ -62,7 +62,7 @@ class Word {
                 this.word.replace(letterToGuess, "");
                 displayedWordArr[index] = letterToGuess;
                 console.log("guess");
-            } else {
+            } else if (letter) {
                 console.log("guess");
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
