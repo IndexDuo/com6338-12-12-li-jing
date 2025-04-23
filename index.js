@@ -30,8 +30,8 @@ class Word {
     // If it is, it will update displayWord to replace any placeholder underscores in the word with that letter. It will add the letter to thecorrectLetters array.
     // If the letter is not included, it will decrement remainingGuesses by 1 and add the letter to the incorrectLetters.
     guessLetter(letter) {
-        console.log(this.word);
         this.remainingGuesses--;
+        console.log(this.word);
         if (this.word.includes(letter)) {
             this.updateScreen(letter);
         }
@@ -73,26 +73,7 @@ class Word {
 
         remainingGuessesEl.textContent = this.remainingGuesses;
 
-        // if (
-        //     wordMatch == false &&
-        //     !incorrectLetters.includes(key) &&
-        //     /^[a-z]+$/.test(key) &&
-        //     e.key.length == 1
-        // ) {
-        //     incorrectLetters.push(key);
-        //     remainingGuesses -= 1;
-        // } else console.log(e.key + " is already in the list or not a letter");
-        // remainingGuessesEl.textContent = remainingGuesses;
-        // incorrectLettersEl.textContent = incorrectLetters;
-        // if (!wordToGuessEl.textContent.includes("_")) {
-        //     wins++;
-        //     newGame();
-        // } else if (remainingGuessesEl.textContent == 0) {
-        //     losses++;
-        //     newGame();
-        // }
-
-        // wordToGuessEl.textContent = displayedWordArr.join("");
+        wordToGuessEl.textContent = displayedWordArr.join("");
     }
 
     // implement the isGameOver function:
