@@ -63,69 +63,22 @@ class Word {
         const wordToGuessEl = document.getElementById("word-to-guess");
         const remainingGuessesEl = document.getElementById("remaining-guesses");
         const incorrectLettersEl = document.getElementById("incorrect-letters");
-        const winsEl = document.getElementById("wins");
-        const lossesEl = document.getElementById("losses");
-        var wordToGuessLength = this.word.length;
-        if (wordToGuessEl.textContent == "") {
-            while (wordToGuessLength > 0) {
-                wordToGuessEl.textContent += "_";
-                wordToGuessLength--;
-            }
-        }
 
-        var wordMatch = false;
-        var displayedWordArr = wordToGuessEl.textContent.split("");
-
-        this.word.split("").forEach((letterToGuess, index) => {
-            if (letter == letterToGuess) {
-                wordMatch = true;
-                // console.log(e.key + " is correct. Index: " + index);
-                this.word.replace(letterToGuess, "");
-                displayedWordArr[index] = letterToGuess;
-                // console.log("guess");
-            } else if (letter) {
-                // console.log("guess");
-                // console.log(e.key + " is incorrect. Index: " + index);
-            }
-        });
-
-        if (
-            wordMatch == false &&
-            letter.length == 1 &&
-            !this.incorrectLetters.includes(letter)
-        ) {
-            this.incorrectLetters.push(letter);
-            console.log(letter);
-            incorrectLettersEl.textContent = this.incorrectLetters;
-            // this.remainingGuesses--;
-        } else {
-            // this.remainingGuesses--;
-        }
-
-        // if (wordMatch == false && !this.word.includes(letter)) {
-        //     this.incorrectLetters.push(letter);
-        // } else console.log(letter + " is already in the list or not a letter");
-
-        // // incorrectLettersEl.textContent = this.incorrectLetters;
-        // if (!wordToGuessEl.textContent.includes("_")) {
-        //     wins++;
-        //     newGame();
-        // } else if (remainingGuessesEl.textContent == 0) {
-        //     losses++;
-        //     newGame();
-        // }
-        // winsEl.textContent = wins;
-        // lossesEl.textContent = losses;
-
+        wordToGuessEl.textContent = this.displayWord;
         remainingGuessesEl.textContent = this.remainingGuesses;
-
-        wordToGuessEl.textContent = displayedWordArr.join("");
+        incorrectLettersEl.textContent = this.incorrectLetters.join("");
     }
 
     // implement the isGameOver function:
     // Should return true if the game is over and false if the game is not over.
     // The game is over if either remainingGuesses is less than or equal to 0, or if word is equal to displayWord.
-    isGameOver() {}
+    isGameOver() {
+        if (this.remainingGuesses <= 0 || !this.displayWord.includes("_")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // implement the getWinOrLoss function:
     //  Should return "win" or "loss" depending on if the game is won or lost. Should return null if the game is not over yet.
