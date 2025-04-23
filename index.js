@@ -30,11 +30,28 @@ class Word {
     // If it is, it will update displayWord to replace any placeholder underscores in the word with that letter. It will add the letter to thecorrectLetters array.
     // If the letter is not included, it will decrement remainingGuesses by 1 and add the letter to the incorrectLetters.
     guessLetter(letter) {
-        console.log(this.word);
-        this.updateScreen(letter);
-        // if (this.word.includes(letter)) {
-        //     this.updateScreen(letter);
-        // }
+        let wordMatch = false;
+        let displayedWordArr = this.displayWord.split("");
+
+        this.word.split("").forEach((char, index) => {
+            if (char === letter && !this.correctLetters.includes(letter)) {
+                wordMatch = true;
+                displayedWordArr[index] = letter;
+            }
+        });
+
+        if (wordMatch) {
+            this.correctLetters.push(letter);
+        } else if (
+            letter.length === 1 &&
+            /^[a-z]$/.test(letter) &&
+            !this.incorrectLetters.includes(letter)
+        ) {
+            this.incorrectLetters.push(letter);
+            this.remainingGuesses--;
+        }
+
+        this.displayWord = displayedWordArr.join("");
     }
 
     // implement the updateScreen function:
