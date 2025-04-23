@@ -85,11 +85,11 @@ class Word {
     // For the game to be won, word should be equal to displayWord and remainingGuesses should be greater than 0.
     // The game is lost if displayWord is not equal to word and remainingGuesses is equal to or less than 0.
     getWinOrLoss() {
-        if (this.remainingGuesses > 0 || !this.displayWord.includes("_")) {
+        if (this.remainingGuesses > 0 || this.displayWord == this.word) {
             return "win";
         } else if (
             this.remainingGuesses <= 0 &&
-            this.displayWord.includes("_")
+            this.displayWord != this.word
         ) {
             return "loss";
         }
