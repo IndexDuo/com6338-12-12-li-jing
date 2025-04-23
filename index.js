@@ -31,6 +31,7 @@ class Word {
     // If the letter is not included, it will decrement remainingGuesses by 1 and add the letter to the incorrectLetters.
     guessLetter(letter) {
         console.log(this.word);
+        
         if (this.word.includes(letter)) {
             this.updateScreen(letter);
         }
@@ -44,6 +45,8 @@ class Word {
     updateScreen(letter) {
         // console.log(this.word);
         const wordToGuessEl = document.getElementById("word-to-guess");
+        const remainingGuessesEl = document.getElementById("remaining-guesses");
+        const incorrectLettersEl = document.getElementById("incorrect-letters");
         var wordToGuessLength = this.word.length;
         if (wordToGuessEl.textContent == "") {
             while (wordToGuessLength > 0) {
@@ -67,6 +70,26 @@ class Word {
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
         });
+
+         if (
+                wordMatch == false &&
+                !incorrectLetters.includes(key) &&
+                /^[a-z]+$/.test(key) &&
+                e.key.length == 1
+            ) {
+                incorrectLetters.push(key);
+                remainingGuesses -= 1;
+            } else
+                console.log(e.key + " is already in the list or not a letter");
+            remainingGuessesEl.textContent = remainingGuesses;
+            incorrectLettersEl.textContent = incorrectLetters;
+            if (!wordToGuessEl.textContent.includes("_")) {
+                wins++;
+                newGame();
+            } else if (remainingGuessesEl.textContent == 0) {
+                losses++;
+                newGame();
+            }
 
         wordToGuessEl.textContent = displayedWordArr.join("");
     }
