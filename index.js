@@ -42,7 +42,7 @@ class Word {
     // Should update #incorrect-letters with the value in incorrectLetters.
     // Should update #word-to-guess with the value in displayWord.
     updateScreen(letter) {
-        // this.remainingGuesses--;
+        console.log(this.word);
         const wordToGuessEl = document.getElementById("word-to-guess");
         var wordToGuessLength = this.word.length;
         if (wordToGuessEl.textContent == "") {
@@ -53,26 +53,22 @@ class Word {
         }
 
         var wordMatch = false;
-        // console.log(wordToGuess + " " + wordToGuess.length);
-        //https://www.geeksforgeeks.org/how-to-iterate-over-characters-of-a-string-in-javascript/
-
         var displayedWordArr = wordToGuessEl.textContent.split("");
 
-        this.word.split("").forEach((letter, index) => {
-            if (key == letter) {
+        this.word.split("").forEach((letterToGuess, index) => {
+            if (letter == letterToGuess) {
                 wordMatch = true;
                 // console.log(e.key + " is correct. Index: " + index);
-                this.word.replace(letter, "");
-                displayedWordArr[index] = letter;
+                this.word.replace(letterToGuess, "");
+                displayedWordArr[index] = letterToGuess;
+                console.log("guess");
             } else {
+                console.log("guess");
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
         });
 
-        // console.log(displayedWordArr.join(""));
         wordToGuessEl.textContent = displayedWordArr.join("");
-
-        console.log(wordMatch);
     }
 
     // implement the isGameOver function:
