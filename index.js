@@ -30,7 +30,6 @@ class Word {
     // If it is, it will update displayWord to replace any placeholder underscores in the word with that letter. It will add the letter to thecorrectLetters array.
     // If the letter is not included, it will decrement remainingGuesses by 1 and add the letter to the incorrectLetters.
     guessLetter(letter) {
-        this.remainingGuesses--;
         console.log(this.word);
         this.updateScreen(letter);
         // if (this.word.includes(letter)) {
@@ -72,7 +71,7 @@ class Word {
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
         });
-
+        console.log(letter.length());
         if (
             wordMatch == false &&
             letter.length == 1 &&
@@ -81,6 +80,7 @@ class Word {
             this.incorrectLetters.push(letter);
             console.log(letter);
             incorrectLettersEl.textContent = this.incorrectLetters;
+            this.remainingGuesses--;
         }
 
         // if (wordMatch == false && !this.word.includes(letter)) {
