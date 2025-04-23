@@ -71,7 +71,7 @@ class Word {
                 // console.log(e.key + " is incorrect. Index: " + index);
             }
         });
-        console.log(letter.length());
+
         if (
             wordMatch == false &&
             letter.length == 1 &&
@@ -80,7 +80,9 @@ class Word {
             this.incorrectLetters.push(letter);
             console.log(letter);
             incorrectLettersEl.textContent = this.incorrectLetters;
-            this.remainingGuesses--;
+            // this.remainingGuesses--;
+        } else {
+            // this.remainingGuesses--;
         }
 
         // if (wordMatch == false && !this.word.includes(letter)) {
