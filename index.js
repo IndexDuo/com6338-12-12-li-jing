@@ -73,12 +73,9 @@ class Word {
     // Should return true if the game is over and false if the game is not over.
     // The game is over if either remainingGuesses is less than or equal to 0, or if word is equal to displayWord.
     isGameOver() {
-        if (this.remainingGuesses <= 0 || !this.displayWord.includes("_")) {
+        if (this.remainingGuesses <= 0 || this.displayWord == this.word) {
             return true;
-        } else if (
-            this.remainingGuesses > 0 &&
-            this.displayWord !== this.word
-        ) {
+        } else {
             return false;
         }
     }
