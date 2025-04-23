@@ -26,16 +26,24 @@ class Word {
     }
 
     // implement the guessLetter function:
+    // Should accept a letter as an argument and check whether that letter is included in the word.
+    // If it is, it will update displayWord to replace any placeholder underscores in the word with that letter. It will add the letter to thecorrectLetters array.
+    // If the letter is not included, it will decrement remainingGuesses by 1 and add the letter to the incorrectLetters.
     guessLetter(letter) {
         if (this.word.includes(letter)) {
             console.log("yes");
         }
     }
 
+
     // implement the updateScreen function:
+    // Should update the HTML with data from the object.
+    // Should update #remaining-guesses with the value in remainingGuesses.
+    // Should update #incorrect-letters with the value in incorrectLetters.
+    // Should update #word-to-guess with the value in displayWord.
     updateScreen(word) {
       this.remainingGuesses--;
-      
+
     }
 
     // implement the isGameOver function:
