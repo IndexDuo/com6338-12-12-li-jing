@@ -73,11 +73,15 @@ class Word {
             }
         });
 
-        if (wordMatch == false) {
+        if (
+            wordMatch == false &&
+            letter.length == 1 &&
+            !this.incorrectLetters.includes(letter)
+        ) {
             this.incorrectLetters.push(letter);
             console.log(letter);
+            incorrectLettersEl.textContent = this.incorrectLetters;
         }
-        incorrectLettersEl.textContent = this.incorrectLetters;
 
         // if (wordMatch == false && !this.word.includes(letter)) {
         //     this.incorrectLetters.push(letter);
