@@ -32,7 +32,7 @@ class Word {
     guessLetter(letter) {
         console.log(this.word);
         if (this.word.includes(letter)) {
-          this.updateScreen(letter)
+            this.updateScreen(letter);
         }
     }
 
@@ -51,7 +51,28 @@ class Word {
                 wordToGuessLength--;
             }
         }
-        
+
+        var wordMatch = false;
+        // console.log(wordToGuess + " " + wordToGuess.length);
+        //https://www.geeksforgeeks.org/how-to-iterate-over-characters-of-a-string-in-javascript/
+
+        var displayedWordArr = wordToGuessEl.textContent.split("");
+
+        this.word.split("").forEach((letter, index) => {
+            if (key == letter) {
+                wordMatch = true;
+                // console.log(e.key + " is correct. Index: " + index);
+                this.word.replace(letter, "");
+                displayedWordArr[index] = letter;
+            } else {
+                // console.log(e.key + " is incorrect. Index: " + index);
+            }
+        });
+
+        // console.log(displayedWordArr.join(""));
+        wordToGuessEl.textContent = displayedWordArr.join("");
+
+        console.log(wordMatch);
     }
 
     // implement the isGameOver function:
